@@ -1,8 +1,5 @@
 var express	= require("express");
-var bodyParser = require('body-parser')
 var app		= express();
-app.use(bodyParser.json({limit: '5000mb'}))
-app.use(bodyParser.urlencoded({limit: '5000mb'}))
 var fs = require('fs');
 var util = require('util'),
 			spawn = require('child_process').spawn,
