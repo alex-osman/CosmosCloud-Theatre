@@ -6,10 +6,10 @@ var util = require('util'),
 			exec = require('child_process').exec,
 			child;
 
-var movie_folder = "public/assets/movies/"
-var picture_folder = "public/assets/pictures/"
-var doc_folder = "public/assets/docs/"
-var music_folder = "public/assets/music/"
+var movie_folder = "assets/movies/"
+var picture_folder = "assets/pictures/"
+var doc_folder = "assets/docs/"
+var music_folder = "assets/music/"
 
 var isPlaying = false;
 var currentlyPlaying = "none";
@@ -25,7 +25,7 @@ var killOmxplayer = function() {
 var startOmxplayer = function(url) {
 	killOmxplayer();
 	fs.writeFile('FIFO', '', function(err) {if (err) throw err;})
-	pid = exec('omxplayer -b -o local ' + url).pid;
+	pid = exec('omxplayer --vol -1800 -b -o local ' + url).pid;
 	currentlyPlaying = url;
 	isPlaying = true;
 	console.log("Playing " + url);
