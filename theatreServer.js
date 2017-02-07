@@ -23,6 +23,7 @@ var killOmxplayer = function() {
 }
 
 var startOmxplayer = function(url) {
+	exec('curl localhost:8080/on0')
 	killOmxplayer();
 	fs.writeFile('FIFO', '', function(err) {if (err) throw err;})
 	pid = exec('omxplayer --vol -1800 -b -o local ' + url).pid;
